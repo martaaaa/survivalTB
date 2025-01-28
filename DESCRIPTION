@@ -1,6 +1,6 @@
 Package: TNBsurvival
 Title: Tools for Interval-Censored Survival Analysis with Bootstrap and Visualization
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: c(
   person(
     given = "Marta",
