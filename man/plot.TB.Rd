@@ -59,5 +59,5 @@ right <- c(4, 6, 8, NA)
 intervals <- TNBintervals(left, right, nboot = 10)
 
 # Plot survival estimates
-TNBsurvival:::plot.TB(intervals, conf = TRUE, conf.level = 0.95)
+survivalTB:::plot.TB(intervals, conf = TRUE, conf.level = 0.95)
 }

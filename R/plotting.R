@@ -24,11 +24,11 @@
 #' intervals <- TNBintervals(left, right, nboot = 10)
 #'
 #' # Plot survival estimates
-#' TNBsurvival:::plot.TB(intervals, conf = TRUE, conf.level = 0.95)
+#' survivalTB:::plot.TB(intervals, conf = TRUE, conf.level = 0.95)
 #' @importFrom stats update predict vcov quantile qnorm
 #' @importFrom graphics grid legend lines matplot polygon
 #' @importFrom grDevices rgb
-#' @import TNBsurvival
+#' @import survivalTB
 #' @export
 
 plot.TB <- function(x, conf=FALSE, conf.level=0.95, line.col="blue", ribbon.col="grey", line.width=2,
@@ -126,9 +126,9 @@ plot.TB <- function(x, conf=FALSE, conf.level=0.95, line.col="blue", ribbon.col=
 #' intervals <- TNBintervals(left, right, nboot = 10)
 #'
 #' # Interactive plot
-#' TNBsurvival:::plot.TBL(intervals, conf = TRUE, conf.level = 0.95)
+#' survivalTB:::plot.TBL(intervals, conf = TRUE, conf.level = 0.95)
 #' @importFrom plotly plot_ly add_ribbons add_lines layout
-#' @import dplyr TNBsurvival plotly
+#' @import dplyr survivalTB plotly
 #' @export
 
 plot.TBL <- function(x, conf=FALSE, conf.level=0.95, main="Survival Estimate",

@@ -62,5 +62,5 @@ right <- c(4, 6, 8, NA)
 intervals <- TNBintervals(left, right, nboot = 10)
 
 # Interactive plot
-TNBsurvival:::plot.TBL(intervals, conf = TRUE, conf.level = 0.95)
+survivalTB:::plot.TBL(intervals, conf = TRUE, conf.level = 0.95)
 }

@@ -6,7 +6,7 @@ test_that("single.TNBsurvival works correctly", {
     survival = c(1.0, 0.7, 0.2)
   )
   times <- c(1, 3, 5, 7)
-  result <- TNBsurvival::single.TNBsurvival(data, times)
+  result <- survivalTB::single.TNBsurvival(data, times)
   expect_type(result, "double")
   expect_length(result, length(times))
 })

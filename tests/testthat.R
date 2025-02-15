@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(TNBsurvival)
+library(survivalTB)
 
-test_check("TNBsurvival")
+test_check("survivalTB")

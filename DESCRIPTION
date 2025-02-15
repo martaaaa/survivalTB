@@ -1,4 +1,4 @@
-Package: TNBsurvival
+Package: survivalTB
 Title: Tools for Interval-Censored Survival Analysis with Bootstrap and Visualization
 Version: 1.0.0
 Authors@R: c(
@@ -17,19 +17,19 @@ Authors@R: c(
   person(
     given = "Gustavo",
     family = "Soutinho",
-    email = "gdsoutinho@gmail.com",
+    email = "gustavosoutinho@sapo.pt",
     comment = c(ORCID = "0000-0002-0559-1327"),
     role = "aut" ) )
 Maintainer: Marta Azevedo <marta.vasconcelos4@gmail.com>
-Description: The `TNBsurvival` package provides tools for interval-censored 
+Description: The `survivalTB` package provides tools for interval-censored 
     survival analysis, including survival estimation, confidence intervals 
     via bootstrap, and customizable visualizations with base R and 
     `plotly`. The package is designed for researchers working with interval-censored 
     data in survival analysis, offering both efficient calculations and 
     interactive visualization options.
 License: MIT + file LICENSE
-URL: https://github.com/martaaaa/TNBsurvival
-BugReports: https://github.com/martaaaa/TNBsurvival/issues
+URL: https://github.com/martaaaa/survivalTB
+BugReports: https://github.com/martaaaa/survivalTB/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1

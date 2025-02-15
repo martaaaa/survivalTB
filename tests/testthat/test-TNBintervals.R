@@ -2,7 +2,7 @@ test_that("TNBintervals works correctly", {
   left <- c(2, 4, 6, 8)
   right <- c(4, 6, 8, NA)
 
-  intervals <- TNBsurvival::TNBintervals(left, right, nboot = 10)
+  intervals <- survivalTB::TNBintervals(left, right, nboot = 10)
 
   expect_named(intervals, c("original", "bootstrap"))
   expect_s3_class(intervals$original, "data.frame")
@@ -14,7 +14,7 @@ test_that("TNBintervals - mismatched lengths triggers error", {
   right <- c(4, 6)
 
   expect_error(
-    TNBsurvival::TNBintervals(left, right),
+    survivalTB::TNBintervals(left, right),
     regexp = "must have the same length"
   )
 })
@@ -24,7 +24,7 @@ test_that("TNBintervals - non-numeric inputs trigger error", {
   right <- c(2, 4, 6)
 
   expect_error(
-    TNBsurvival::TNBintervals(left, right),
+    survivalTB::TNBintervals(left, right),
     regexp = "must be numeric vectors"
   )
 })
