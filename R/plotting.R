@@ -47,8 +47,8 @@ plot.TB <- function(x, conf=FALSE, conf.level=0.95, line.col="blue", ribbon.col=
   all_times <- all_times[is.finite(all_times)] # Remover Inf se existir
   ntimes <- seq(0, max(all_times), length=100)
 
-  # (ii) Obter estimativas de sobrevivência usando a função single.TNBsurvival
-  survival_estimates <- single.TNBsurvival(data, all_times)
+  # (ii) Obter estimativas de sobrevivência usando a função .single.TNBsurvival
+  survival_estimates <- .single.TNBsurvival(data, all_times)
   est <- TNBsurvival(data=x, times=ntimes, conf=conf, conf.level = conf.level)
 
   # (iii) Fazer o plot das linhas
@@ -148,8 +148,8 @@ plot.TBL <- function(x, conf=FALSE, conf.level=0.95, main="Survival Estimate",
   all_times <- all_times[is.finite(all_times)] # Remover Inf se existir
   ntimes <- seq(0, max(all_times), length=100)
 
-  # (ii) Obter estimativas de sobrevivência usando a função single.TNBsurvival
-  survival_estimates <- single.TNBsurvival(data, all_times)
+  # (ii) Obter estimativas de sobrevivência usando a função .single.TNBsurvival
+  survival_estimates <- .single.TNBsurvival(data, all_times)
   est <- TNBsurvival(data=x, times=ntimes, conf=conf, conf.level=conf.level)
 
   # Separar colunas do objeto est

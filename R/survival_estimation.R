@@ -13,15 +13,14 @@
 #'   weight = c(0.3, 0.5, 0.2),
 #'   survival = c(1.0, 0.7, 0.2)
 #' )
-#'
-#' times <- c(1, 3, 5, 7)
+#'#' times <- c(1, 3, 5, 7)
 #'
 #' # Single survival estimation
-#' survival_estimates <- single.TNBsurvival(data, times)
+#' survival_estimates <- .single.TNBsurvival(data, times)
 #' print(survival_estimates)
-#' @export
+#' @keywords internal
 
-single.TNBsurvival <- function(data, times) {
+.single.TNBsurvival <- function(data, times) {
   # Ordenar os dados pelos limites inferiores dos intervalos
   data <- data[order(data$left), ]
   aux <- data[1, "left"]
@@ -117,7 +116,7 @@ TNBsurvival <- function(data, times, conf = FALSE, conf.level = 0.95) {
   }
 
   # Calcular as estimativas de sobrevivência para os dados originais
-  survival_estimates <- single.TNBsurvival(data$original, times)
+  survival_estimates <- .single.TNBsurvival(data$original, times)
 
   # Se limites de confiança não forem solicitados, retornar apenas as estimativas
   if (!conf) {
@@ -136,7 +135,7 @@ TNBsurvival <- function(data, times, conf = FALSE, conf.level = 0.95) {
 
   # Calcular sobrevivência para cada réplica bootstrap
   for (b in seq_along(data$bootstrap)) {
-    bootstrap_survival[, b] <- single.TNBsurvival(data$bootstrap[[b]], times)
+    bootstrap_survival[, b] <- .single.TNBsurvival(data$bootstrap[[b]], times)
   }
 
   # Calcular limites de confiança
