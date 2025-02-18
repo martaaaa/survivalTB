@@ -24,14 +24,13 @@
 #' intervals <- TNBintervals(left, right, nboot = 10)
 #'
 #' # Plot survival estimates
-#' survivalTB:::plot.TB(intervals, conf = TRUE, conf.level = 0.95)
+#' survivalTB:::plot_TB_static(intervals, conf = TRUE, conf.level = 0.95)
 #' @importFrom stats update predict vcov quantile qnorm
 #' @importFrom graphics grid legend lines matplot polygon
 #' @importFrom grDevices rgb
 #' @import survivalTB
-#' @export
 
-plot.TB <- function(x, conf=FALSE, conf.level=0.95, line.col="blue", ribbon.col="grey", line.width=2,
+plot_TB_static  <- function(x, conf=FALSE, conf.level=0.95, line.col="blue", ribbon.col="grey", line.width=2,
                     main="Survival Estimate", xlab="Time", ylab="Survival",
                     add.legend = FALSE, legend.position="topright",...){
 
@@ -126,12 +125,11 @@ plot.TB <- function(x, conf=FALSE, conf.level=0.95, line.col="blue", ribbon.col=
 #' intervals <- TNBintervals(left, right, nboot = 10)
 #'
 #' # Interactive plot
-#' survivalTB:::plot.TBL(intervals, conf = TRUE, conf.level = 0.95)
+#' survivalTB:::plot_TB_interactive(intervals, conf = TRUE, conf.level = 0.95)
 #' @importFrom plotly plot_ly add_ribbons add_lines layout
 #' @import dplyr survivalTB plotly
-#' @export
 
-plot.TBL <- function(x, conf=FALSE, conf.level=0.95, main="Survival Estimate",
+plot_TB_interactive<- function(x, conf=FALSE, conf.level=0.95, main="Survival Estimate",
                      xlab = "Time", ylab = "Survival", line.col ="blue",
                      showlegend = TRUE, main.line="survival", filled="CI",
                      line.width = 2, fillcolor = "rgba(128, 128, 128, 0.3)",...) {
@@ -186,3 +184,63 @@ plot.TBL <- function(x, conf=FALSE, conf.level=0.95, main="Survival Estimate",
 
   return(plot)
 }
+
+#' Plot TB Objects
+#'
+#' This function generates a static survival plot for TB objects, including optional confidence bands.
+#'
+#' @param x A TB object.
+#' @param conf Logical, whether to include confidence bands. Default FALSE.
+#' @param conf.level Numeric, confidence level for bands. Default 0.95.
+#' @param ... Additional graphical parameters.
+#'
+#' @title Plot TB Objects
+#' @name plot.TB
+#' @export
+
+plot.TB <- function(x, interactive = FALSE,
+                    conf = FALSE,
+                    conf.level = 0.95,
+                    main = "Survival Estimate",
+                    xlab = "Time",
+                    ylab = "Survival",
+                    line.col = "blue",
+                    showlegend = TRUE,
+                    main.line = "survival",
+                    filled = "CI",
+                    line.width = 2,
+                    fillcolor = "rgba(128, 128, 128, 0.3)",
+                    ...) {
+
+  if (!inherits(x, "TB")) {
+    stop("Object must have class 'TB'.")
+  }
+
+  if (interactive) {
+    # calls the interactive version
+    result <- plot_TB_interactive(
+      x, conf = conf, conf.level = conf.level,
+      main = main, xlab = xlab, ylab = ylab,
+      line.col = line.col, showlegend = showlegend,
+      main.line = main.line, filled = filled,
+      line.width = line.width, fillcolor = fillcolor,
+      ...
+    )
+  } else {
+    # calls the static version
+    result <- plot_TB_static(
+      x, conf = conf, conf.level = conf.level,
+      main = main, xlab = xlab, ylab = ylab,
+      line.col = line.col, showlegend = showlegend,
+      main.line = main.line, filled = filled,
+      line.width = line.width, fillcolor = fillcolor,
+      ...
+    )
+  }
+
+  # Return the result so you can inspect or print it.
+  return(result)
+}
+
+
+

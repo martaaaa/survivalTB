@@ -2,9 +2,10 @@
 % Please edit documentation in R/plotting.R
 \name{plot.TBL}
 \alias{plot.TBL}
+\alias{plot_TB_interactive}
 \title{Interactive Survival Plot with Plotly}
 \usage{
-\method{plot}{TBL}(
+plot_TB_interactive(
   x,
   conf = FALSE,
   conf.level = 0.95,
@@ -62,5 +63,5 @@ right <- c(4, 6, 8, NA)
 intervals <- TNBintervals(left, right, nboot = 10)
 
 # Interactive plot
-survivalTB:::plot.TBL(intervals, conf = TRUE, conf.level = 0.95)
+survivalTB:::plot_TB_interactive(intervals, conf = TRUE, conf.level = 0.95)
 }
