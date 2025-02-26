@@ -5,19 +5,6 @@
 #' @param data A data frame with survival estimates (output of `.process_single_run`).
 #' @param times Numeric vector of times for which survival estimates are required.
 #' @return A numeric vector of survival probabilities corresponding to the input times.
-#' @examples
-#' # Example data
-#' data <- data.frame(
-#'   left = c(2, 4, 6),
-#'   right = c(4, 6, NA),
-#'   weight = c(0.3, 0.5, 0.2),
-#'   survival = c(1.0, 0.7, 0.2)
-#' )
-#'#' times <- c(1, 3, 5, 7)
-#'
-#' # Single survival estimation
-#' survival_estimates <- .single.TNBsurvival(data, times)
-#' print(survival_estimates)
 #' @keywords internal
 
 .single.TNBsurvival <- function(data, times) {

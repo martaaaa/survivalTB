@@ -17,18 +17,4 @@ A numeric vector of survival probabilities corresponding to the input times.
 \description{
 This function estimates survival probabilities for a given set of times using interval-censored data.
 }
-\examples{
-# Example data
-data <- data.frame(
-  left = c(2, 4, 6),
-  right = c(4, 6, NA),
-  weight = c(0.3, 0.5, 0.2),
-  survival = c(1.0, 0.7, 0.2)
-)
-#' times <- c(1, 3, 5, 7)
-
-# Single survival estimation
-survival_estimates <- .single.TNBsurvival(data, times)
-print(survival_estimates)
-}
 \keyword{internal}
