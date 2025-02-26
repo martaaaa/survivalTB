@@ -34,7 +34,7 @@ test_that("TNBintervals - left >= right triggers error", {
   right <- c(4, 4, 8)  # O segundo par é (4,4)
 
   expect_error(
-    TNBsurvival::TNBintervals(left, right),
+    survivalTB::TNBintervals(left, right),
     regexp = "Each value in 'left' must be strictly less"
   )
 })
@@ -43,7 +43,7 @@ test_that("TNBintervals - bootstrap replications", {
   left <- c(2, 4, 6, 8)
   right <- c(3, 5, 7, 10)
 
-  result <- TNBsurvival::TNBintervals(left, right, nboot = 5)
+  result <- survivalTB::TNBintervals(left, right, nboot = 5)
 
   # Verifies if 'bootstrap' has 5 elements
   expect_length(result$bootstrap, 5)
@@ -56,7 +56,7 @@ test_that("TNBintervals - output structure", {
   left <- c(2, 4, 6)
   right <- c(4, 6, 8)
 
-  result <- TNBsurvival::TNBintervals(left, right)
+  result <- survivalTB::TNBintervals(left, right)
 
   # columns of the original
   expect_named(result$original, c("left", "right", "weight", "survival"))
