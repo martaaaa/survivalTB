@@ -6,6 +6,7 @@
 \usage{
 \method{plot}{TB}(
   x,
+  interactive = FALSE,
   conf = FALSE,
   conf.level = 0.95,
   main = "Survival Estimate",

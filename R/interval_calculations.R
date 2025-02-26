@@ -8,11 +8,8 @@
 #' @keywords internal
 
 .process_single_run <- function(left, right) {
-  if (length(left) != length(right)){
-    stop("'left' and 'right' must have the same length")
-  }
-  res <- icfit(survival::Surv(left, right, type = "interval2") ~ 1)
-  sink(tempfile())  # Redirect output to a temporary file
+  res <- interval::icfit(survival::Surv(left, right, type = "interval2") ~ 1)
+  sink(tempfile())  # Redirecionar saída para um arquivo temporário
   summary_res <- summary(res)
   sink()
 
@@ -23,6 +20,13 @@
     survival = 1 - cumsum(as.numeric(summary_res$Probability))
   )
   ob[is.na(ob)]<-Inf
+
+  if (sum(ob$weight) > 1) {
+    ex <- sum(ob$weight) - 1
+    len <- length(ob$weight)
+    ob$weight[len] <- ob$weight[len] - ex
+    ob$survival[len] <- ob$survival[len] + ex}
+
   return(ob)
 }
 
