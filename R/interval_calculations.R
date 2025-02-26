@@ -8,6 +8,10 @@
 #' @keywords internal
 
 .process_single_run <- function(left, right) {
+  if (length(left) != length(right)) {
+    stop("'left' and 'right' must have the same length")
+  }
+
   res <- interval::icfit(survival::Surv(left, right, type = "interval2") ~ 1)
   sink(tempfile())  # Redirecionar saída para um arquivo temporário
   summary_res <- summary(res)
