@@ -19,3 +19,27 @@ This package depends on **interval**, which in turn requires **Icens**. However,
    ```
 
 3. **Proceed with installing survivalTB**  
+a) Using remotes (Recommended)
+```r
+install.packages("remotes")
+remotes::install_github("martaaaa/survivalTB")
+```
+
+b) From Source (ZIP or Folder)
+* Download the ZIP of this repo (e.g., survivalTB.zip) from GitHub.
+* Unzip it.
+In R, run:
+```r
+install.packages("path/to/survivalTB", repos = NULL, type = "source")
+```
+----------
+
+To load the package:
+```r
+library(survivalTB)
+```
+
+Note: If you encounter any errors, confirm that:
+* Icens was successfully installed.
+* interval is installed from CRAN.
+* You’re installing survivalTB from the correct path or GitHub URL.
