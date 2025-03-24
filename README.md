@@ -5,20 +5,24 @@ Survival analysis with interval data, bootstrap and interactive visualization.
 
 This package depends on **interval**, which in turn requires **Icens**. However, **Icens** has been archived on CRAN, causing automated installations to fail. To install **survivalTB** successfully, please follow these steps:
 
-1. **Install Icens Manually**  
-   - Visit the [CRAN archive for Icens](https://cran.r-project.org/src/contrib/Archive/Icens/).  
-   - Download the most recent `.tar.gz` file.  
-   - In R, install it manually:
+1. **Install Icens Manually**
+   
+   This package depends on **interval**, which in turn requires **Icens**. However, **Icens** has been archived on CRAN, causing automated installations to fail. You can:
+   - **Download from the CRAN archive** [CRAN archive for Icens](https://cran.r-project.org/src/contrib/Archive/Icens/).
+   - **Or install from Bioconductor** [Icens on Bioconductor](https://www.bioconductor.org/packages/release/bioc/html/Icens.html)
+
+   Once downloaded,  
+   - install manually in R:
      ```r
      install.packages("path/to/Icens_x.y.z.tar.gz", repos = NULL, type = "source")
      ```
 
-2. **Install interval**  
+3. **Install interval**  
    ```r
    install.packages("interval")
    ```
 
-3. **Proceed with installing survivalTB**  
+4. **Proceed with installing survivalTB**  
 a) Using remotes (Recommended)
 ```r
 install.packages("remotes")
